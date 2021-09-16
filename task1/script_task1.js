@@ -2,9 +2,8 @@
 var money = prompt("Ваш бюджет на месяц?"),
     time = prompt("Введите дату в формате YYYY-MM-DD"),
     x = prompt("Введите обязательную статью расходов в этом месяце"),
-    y = prompt ("Во сколько обойдется?")
-    ;
-// Создаю 2 переменные
+    y = prompt ("Во сколько обойдется?");
+// Создаю 4 переменные для хранения данных, полученных от пользователя
 
 var appData = {
     budget:        money,
@@ -17,5 +16,5 @@ var appData = {
 
 };
 
-alert((money - expenses.mandatoryExpenseAmount) / 30);
+alert((money - appData.expenses.mandatoryExpenseAmount) / 30);
 
