@@ -50,12 +50,37 @@
 'use strict';
 const money = +prompt('Ваш бюджет на месяц?'),
     time = prompt('Введите дату в формате YYYY-MM-DD');
+
+
 const appData = {
-    budget: money,
-    timeData: time,
-    expenses: {},
-
-
+    budget: money, //  бюджет (передаем сюда переменную из п.2)
+    timeData: time,//  данные времени - timeData (передаем сюда переменную из п.2)
+    expenses: {}, // объект с обязательными расходами
+    optionalExpenses: {}, // объект с необязательными расходами
+    income: [], // массив данных с доп. доходом
+    savings: false // сбережения
 };
+
+const subjectOfExpense1 = prompt('Введите обязательную статью расходов в этом месяце');
+const amountOfExpense1 = +prompt('Во сколько обойдется?');
+const subjectOfExpense2 = prompt('Введите обязательную статью расходов в этом месяце');
+const amountOfExpense2 = +prompt('Во сколько обойдется?');
+// Задаю 2 раза вопрос про статьи и величину расходов
+
+appData.expenses[subjectOfExpense1] = amountOfExpense1;
+// инициализирую св-во "предмет расходов" и присваиваю ему значение, введенное пользователем
+appData.expenses[subjectOfExpense2] = amountOfExpense1;
+// дополнительная пара "название св-ва" : значение для получения данных по второму вопросу
+
+console.log(appData.expenses);
+// Убеждаюсь в консоли, что в объект попали значения, введеные пользователем
+
+
+const monthlyBudget =
+    ( appData.budget - (amountOfExpense1 + amountOfExpense2) ) / 30;
+// Вычисляю бюджет на 1 день
+alert ('Ваш бюджет на 1 день: ' + monthlyBudget);
+// Вывожу полученное значение бюджета на 1 день
+
 
 
