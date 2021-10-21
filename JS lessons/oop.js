@@ -1,7 +1,5 @@
 'use strict';
 
-let arr = ['arrr', 'rrr', 'fdfd', 'fdf'];
-console.log(arr.length);
 
 let soldier = {
     health: 400,
